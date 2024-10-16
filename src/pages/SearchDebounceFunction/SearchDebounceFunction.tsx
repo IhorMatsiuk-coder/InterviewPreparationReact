@@ -14,7 +14,7 @@ const SearchDebounceFunction = () => {
                 setUsersData(data);
             })
             .catch((error) => {
-                console.log("Errror While fetching user data");
+                console.log("Error While fetching user data");
             });
     }, []);
 
@@ -26,6 +26,7 @@ const SearchDebounceFunction = () => {
             try {
                 const response = await fetch(`https://jsonplaceholder.typicode.com/users?username=${searchText}`, { signal }); // Fetch data based on the current page
                 const data = await response.json();
+
                 setFilteredUser(data[0]);
             } catch (error: any) {
                 if (error.name === "AbortError") {
